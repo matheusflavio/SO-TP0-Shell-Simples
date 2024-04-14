@@ -147,7 +147,8 @@ main(void)
      * para reportar o erro corretamente. */
     /*
      * Verifica se existe a pasta passada como argumento. Em outras palavras, verifica
-     * se o caminho e, consequentemente a pasta, passado como argumento é válido.
+     * se o caminho e, consequentemente, a pasta, passados como argumento para a execução
+     * do comando "cd" são válidos.
     */
     if(buf[0] == 'c' && buf[1] == 'd' && buf[2] == ' '){
       buf[strlen(buf)-1] = 0;
