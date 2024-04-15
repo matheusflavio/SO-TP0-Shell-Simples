@@ -75,7 +75,6 @@ runcmd(struct cmd *cmd)
      * TAREFA2: Implemente codigo abaixo para executar
      * comandos simples. */
     execvp(ecmd->argv[0], ecmd->argv); // Verifica erro de comando simples
-    // https://www.qnx.com/developers/docs/6.5.0SP1.update/com.qnx.doc.neutrino_lib_ref/e/execvp.html
     /* MARK END task2 */
     break;
 

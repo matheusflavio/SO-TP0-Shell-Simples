@@ -13,15 +13,56 @@ Preencha as linhas abaixo com o nome e o e-mail dos integrantes do
 grupo.  Substitua XX pela contribuição de cada membro do grupo no
 desenvolvimento do trabalho.
 
-Nome <email@domain.br> XX%
-Nome <email@domain.br> XX%
-Nome <email@domain.br> XX%
+Matheus Flávio Gonçalves Silva <flavio.matheusgsilva@gmail.com> 100%
 
 3. Referências bibliográficas
 
-Adicione aqui as referências bibliográficas.
+/* Geral */
+Fundamentos de Sistemas Operacionais, Silberschatz, Galvin e Gagne. 9th Edition.
+
+/* Task 1 */
+
+/* Task 2 */
+https://www.qnx.com/developers/docs/6.5.0SP1.update/com.qnx.doc.neutrino_lib_ref/e/execvp.html
+
+/* Task 3 */
+https://linux.die.net/man/3/open
+https://linux.die.net/man/3/close
+
+/* Task 4 */
+https://linux.die.net/man/2/pipe
+https://www.geeksforgeeks.org/fork-system-call/
+https://linux.die.net/man/2/dup2
+
 
 4. Estruturas de dados
 
-Descreva e justifique as estruturas de dados e algoritmos utilizados
-em sua solução.
+/* Task 1 */
+Comentário feito na questão. Não foi utilizado nenhum estrutura de dados, apenas feito um comentário
+e alterado o printf em questão.
+
+/* Task 2 */
+Não foi utilizada nenhuma estrutura de dados, apenas a execução da função "execvp" que é utilizada
+para ver se a execução do comando simples está de acordo com o esperado.
+
+/* Task 3 */
+Não foi utilizada nenhuma estrutura de dados, apenas a execução das funções "close" e "open" para,
+respectivamente, fechar o descritor do arquivo e para abrir o arquivo de entrada/saída, além de
+definir o modo com que esse arquivo esta interagindo.
+
+/* Task 4 */
+Foram utilizadas as estruturas "p" e "r" já descritas previamente no código original para armazenar os
+dados da execução das funções "pipe" e "fork1", respectivamente, além de duas tomadas de decisão:
+
+No caso do pipe, é feito um "if" simples que verifica se houve erro no pipe (código -1). Em caso de
+erro, são executados os procedimentos `perror("Erro de Fork no Pipe");` e `exit(1);`.
+
+No caso do fork1, é utilizado uma estrutura de switch case pra definir os métodos de acordo com o caso.
+No caso de erro, código "-1", são chamados os procedimentos `perror("Erro de Fork no Pipe");` e `exit(1);`
+No caso de estar lidando com o processo pai, código "0", são chamados os procedimentos `close(p[0]);`,
+`dup2(p[1],1);` e `runcmd(pcmd->left);`
+Já no caso de estar lidando com o processo filho, simplesmente é utilizado o método default do switch case
+para comparação, além de chamar os seguintes procedimentos: `close(p[1]);`, `dup2(p[0],0);` e `runcmd(pcmd->right);`.
+
+Nos casos de procedimentos pai e filho, os métodos são idênticos, apenas mudando os parâmetros passados para
+fechamento do descritor e duplicação do outro descritor.
